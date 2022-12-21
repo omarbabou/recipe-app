@@ -15,8 +15,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_06_083637) do
   enable_extension "plpgsql"
 
   create_table "recipes", force: :cascade do |t|
+    t.string "name", null: false
+    t.time "prepration_time", null: false
+    t.time "cooking_time", null: false
+    t.text "description", null: false
+    t.boolean "public", default: true
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -30,6 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_06_083637) do
     t.datetime "remember_created_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end
+end
 
+add_foreign_key "recipes", "users"
 end
