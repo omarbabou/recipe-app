@@ -48,4 +48,4 @@ class AddDeviseToUsers < ActiveRecord::Migration[7.0]
       # model already existed. Please edit below which fields you would like to remove in this migration.
       raise ActiveRecord::IrreversibleMigration
     end
-end
+  end
