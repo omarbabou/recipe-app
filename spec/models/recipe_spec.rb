@@ -1,5 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Recipe, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+class RecipeTest < ActiveSupport::TestCase
+    # test "the truth" do
+    #   assert true
+    # end
 end
