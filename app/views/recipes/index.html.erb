@@ -1,11 +1,14 @@
-<h1>Recipes</h1>
+<div class="wrapper">
 
-<div id="recipes">
-  <%= link_to "New recipe", new_recipe_path %>
+  <h1>Recipe List</h1>
+  <%= link_to "Add New Recipe", new_user_recipe_path, class: "btn btn-success" %>
+
   <% @recipes.each do |recipe| %>
-    <%= render recipe %>
-    <p>
-      <%= link_to "Show this recipe", recipe %>
-    </p>
+    <%= render partial: 'recipes/recipe_card', locals: { recipe: recipe, user_id: recipe.id } %>
   <% end %>
+
+  <% if @recipes.empty? %>
+    <h1>There are no public recipes to show</h1>
+  <% end %>
+
 </div>
