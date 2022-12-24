@@ -1,5 +1,4 @@
 class Ability
-
   include CanCan::Ability
 
   def initialize(user)
@@ -10,4 +9,3 @@ class Ability
     can :destroy, :all, user_id:
   end
 end
-
