@@ -6,6 +6,7 @@ class Ability
     return unless user.present?
 
     can :create, :all
-    can :destroy, :all, user_id:
+    can :destroy, :all, user_id: 
   end
+ end
 end
