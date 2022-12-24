@@ -4,29 +4,15 @@
 	<div>
 		 <%=form_with url: recipe_path, method: :put do %>
              public: <label class="switch">
-               <%= check_box_tag "public",@recipe.public,@recipe.public, onchange: "this.form.submit()" %>
+               <%= check_box_tag "",@recipe.public,@recipe.public, onchange: "this.form.submit()" %>
                <span class="slider round"></span>
              </label>
              <%end%> 
     </div>
     <p>Cooking time: <%=recipe.cooking_time%></p>
     <p>Description: <%=recipe.description%></p>
-    <button>Generate shopping list</button>
-    <%= link_to "Add ingredient", new_recipe_recipe_food_path(recipe_id: recipe.id) %>
+    <button>Generate list for your shopping</button>
+    <button>Add all ingredients</button>
     <hr>
-    <table>
-      <thead>
-        <tr>
-          <th>Food</th>
-          <th>Quantity</th>
-          <th>value</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <%foods.each do |food|%> 
-          <tr><%=render partial: "recipes/food", locals:{food:food,recipe:recipe}%></tr>
-        <%end%> 
-      </tbody>
-   <table>  
-</div>	
+    <% # render food list from food table%> 
+</div>
