@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'general_shopping_list/index'
   resources :recipe_foods
   devise_for :user
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
