@@ -1,0 +1,18 @@
+<% if @public_recipes.empty?%>
+    <div>
+        <p>No public recipes</p>
+    </div>
+<%else%>
+<div>
+<%@public_recipes.each do |public_recipe| %>
+    <% sum = 0 %>
+    <%= link_to recipe_path(public_recipe.id) do %>
+        <div>
+        <div>
+            <p><%= public_recipe.name%></p>
+            </div>
+        </div>
+    <% end %>
+<%end%>
+</div>
+<%end%>
