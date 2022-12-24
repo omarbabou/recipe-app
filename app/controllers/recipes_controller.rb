@@ -1,4 +1,7 @@
+
+
 class RecipesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_recipe, only: %i[show edit update destroy]
 
   # GET /recipes or /recipes.json
@@ -8,7 +11,11 @@ class RecipesController < ApplicationController
   end
 
   # GET /recipes/1 or /recipes/1.json
-  def show; end
+  def show
+    user = current_user
+    @recipe = user.recipes.find(params[:id])
+    @foods = RecipeFood.where(recipe_id: @recipe.id).includes(:food)
+  end
 
   # GET /recipes/new
   def new
