@@ -1,11 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Food, type: :model do
-  subject { described_class.new(name: 'Food', measurement_unit: 'grams', price: 1, quantity: 1) }
-  describe 'Validations' do
-  it 'is\'t valid without a name' do
-    subject.name = nil
-    expect(subject).to_not be_valid
+  subject do
+  user = User.create(name: 'test', email: 'john@example.com', password: '564321')
   end
-end
+  
+  before { subject.save }
+
+  it 'is valid with valid attributes' do
+  expect(subject).to be_valid
+  end
 end
